@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday To Ayomide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Particles Container -->
+    <div id="particles-container"></div>
+
+    <!-- Floating Hearts Container -->
+    <div id="floating-hearts-container"></div>
+
+    <!-- Lock Screen -->
+    <div id="lock-screen" class="lock-screen">
+        <div class="lock-overlay"></div>
+        <div class="lock-content">
+            <div class="heart-lock">
+                <div class="heart-shape">
+                    <div class="lock-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0110 0v4"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="lock-glow"></div>
+            </div>
+            <h1 class="lock-title">A Special Birthday Surprise For Ayomide</h1>
+            <p class="lock-subtitle">Enter the magic password to unlock your gift</p>
+            <div class="password-container">
+                <input type="password" id="password-input" placeholder="Enter password..." autocomplete="off">
+                <button id="unlock-btn" class="unlock-btn">
+                    <span>Unlock</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+            <p id="error-message" class="error-message">Incorrect password. Try again!</p>
+        </div>
+    </div>
+
+    <!-- Unlock Animation Overlay -->
+    <div id="unlock-animation" class="unlock-animation">
+        <div class="heart-explosion" id="heart-explosion"></div>
+        <div class="sparkle-overlay" id="sparkle-overlay"></div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div id="main-content" class="main-content hidden">
+        <!-- Music Control -->
+        <div id="music-control" class="music-control">
+            <button id="music-btn" class="music-btn">
+                <svg class="music-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 18V5l12-2v13"></path>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <circle cx="18" cy="16" r="3"></circle>
+                </svg>
+                <div class="equalizer">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </button>
+        </div>
+        <audio id="bg-music" preload="auto" loop>
+    <source src="music/fola.mp3" type="audio/mpeg">
+</audio>
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-particles" id="hero-particles"></div>
+            <div class="hero-content">
+                <div class="hero-hearts" id="hero-hearts"></div>
+                <h1 class="hero-title" id="hero-title">Happy Birthday Adedoyin Ayomide Comfort</h1>
+                <p class="hero-subtitle" id="hero-subtitle">Today we celebrate an amazing soul.</p>
+                <div class="countdown-container" id="countdown">
+                    <div class="countdown-label">Countdown to June 16th</div>
+                    <div class="countdown-timer">
+                        <div class="countdown-item">
+                            <span id="days" class="countdown-number">00</span>
+                            <span class="countdown-text">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="hours" class="countdown-number">00</span>
+                            <span class="countdown-text">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="minutes" class="countdown-number">00</span>
+                            <span class="countdown-text">Minutes</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="seconds" class="countdown-number">00</span>
+                            <span class="countdown-text">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <span>Scroll to explore</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery-section">
+            <div class="section-header">
+                <h2 class="section-title">Our Beautiful Memories</h2>
+                <p class="section-subtitle">Moments that make my heart smile</p>
+            </div>
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="photos">Photos</button>
+                <button class="filter-btn" data-filter="videos">Videos</button>
+            </div>
+            <div class="masonry-gallery" id="masonry-gallery">
+                <!-- Photos -->
+                <div class="gallery-item large" data-type="photos">
+                    <img src="images/img1.jpg" alt="Memory 1" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Beautiful moment</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="photos">
+                    <img src="images/img2.jpg" alt="Memory 2" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Precious memory</span>
+                    </div>
+                </div>
+                <div class="gallery-item tall" data-type="photos">
+                    <img src="images/img3.jpg" alt="Memory 3" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Forever cherished</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="videos">
+                    <video src="videos/vid1.mp4" muted loop loading="lazy"></video>
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Special video</span>
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="photos">
+                    <img src="images/img4.jpg" alt="Memory 4" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Joyful times</span>
+                    </div>
+                </div>
+                <div class="gallery-item large" data-type="videos">
+                    <video src="videos/vid2.mp4" muted loop loading="lazy"></video>
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Precious moments</span>
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item tall" data-type="photos">
+                    <img src="images/img5.jpg" alt="Memory 5" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Happiness</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="photos">
+                    <img src="images/img6.jpg" alt="Memory 6" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Sweet memory</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="photos">
+                    <img src="images/img7.jpg" alt="Memory 7" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Lovely day</span>
+                    </div>
+                </div>
+                <div class="gallery-item large" data-type="photos">
+                    <img src="images/img8.jpg" alt="Memory 8" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Adventure time</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="videos">
+                    <video src="videos/vid3.mp4" muted loop></video>
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Fun times</span>
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="photos">
+                    <img src="images/img10.jpg" alt="Memory 10" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Beautiful soul</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="photos">
+                    <img src="images/img11.jpg" alt="Memory 11" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Precious</span>
+                    </div>
+                </div>
+                <div class="gallery-item large" data-type="videos">
+                    <video src="videos/vid4.mp4" muted loop></video>
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Amazing moments</span>
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="photos">
+                    <img src="images/img12.jpg" alt="Memory 12" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Special you</span>
+                    </div>
+                </div>
+                <div class="gallery-item tall" data-type="photos">
+                    <img src="images/img13.jpg" alt="Memory 13" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Wonderful</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="videos">
+                    <video src="videos/vid5.mp4" muted loop></video>
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Joy captured</span>
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="videos">
+                    <video src="videos/vid6.mp4" muted loop></video>
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Priceless</span>
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="videos">
+                    <video src="videos/vid7.mp4" muted loop></video>
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Beautiful soul</span>
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="videos">
+                    <video src="videos/vid8.mp4" muted loop></video>
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Treasured</span>
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="videos">
+                    <video src="videos/vid9.mp4" muted loop></video>
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Heartfelt</span>
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Letter Section -->
+        <section id="letter" class="letter-section">
+            <div class="letter-container">
+                <div class="letter-envelope">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <span>Open Me</span>
+                    </div>
+                </div>
+                <div class="letter-card">
+                    <div class="letter-decoration top-left"></div>
+                    <div class="letter-decoration top-right"></div>
+                    <div class="letter-decoration bottom-left"></div>
+                    <div class="letter-decoration bottom-right"></div>
+                    <div class="letter-header">
+                        <h2>A Letter For You</h2>
+                        <div class="letter-date">June 17, 2026</div>
+                    </div>
+                    <div class="letter-body" id="letter-content"><div class="letter-body" id="letter-content">
+    <p class="letter-greeting">Happy Birthday, Ayo Mi 🥹💕🎂✨</p>
+
+    <p>Hey Love,</p>
+
+    <p>I don't even know how to start this without my chest tightening... but here it goes. Today is the day heaven sent you to earth, and I get to love you in real time.</p>
+
+    <p>Sometimes I look at you and wonder if you truly understand what you mean to me. Not the simple version, not the "I love you" people throw around, but the kind that changed the way my heart beats, the way my days feel, the way my world moves.</p>
+
+    <p>You came into my life quietly, but somehow you became the loudest part of my heart. And lately, I've been carrying this fear the fear of losing you, the fear of waking up one day and realizing I was just another passing chapter in your book while you became the whole story in mine.</p>
+
+    <p>So on your birthday, Ayo mi, I pray:</p>
+
+    <p>You wrap her in a peace that makes no sense the kind that quiets storms before they start.</p>
+
+    <p>I pray You heal every place in her that still aches from yesterday. Every disappointment, every silent tear, every prayer she thought You didn't hear let this new year answer them one by one.</p>
+
+    <p>Cover her health, God. From the crown of her head to the soles of her feet. Let her body be strong, her mind be sound, and her spirit be full. No emergency will come near her. No sudden fear will break her.</p>
+
+    <p>Go before her and make every crooked path straight. Let doors open that no man can shut. Let rooms remember her name even when she's not in them. Let favor speak for her in places her voice can't reach.</p>
+
+    <p>Protect her from people who pretend. From love that confuses. From friends who compete. Send her destiny helpers people who will water what You planted in her.</p>
+
+    <p>Give her joy that returns in the morning. Give her sleep that actually rests her. Give her ideas that turn into income, and dreams that turn into reality.</p>
+
+    <p>And God, if she ever doubts herself, remind her: She is fearfully and wonderfully made. She is chosen. She is covered.</p>
+
+    <p>I know I'm not perfect. I know I've made mistakes, spoken wrong sometimes, failed to show you how much I need you. But the truth is, I've never cared about someone the way I care about you. It scares me how much power you have over my happiness, but it also warms me, because it means I finally found someone worth that risk.</p>
+
+    <p>You're not just my girlfriend.</p>
+
+    <p>You're the person I want to tell my good news to, and the person I want to run to when I'm breaking inside.</p>
+
+    <p>You're the calm in my storms, even when you don't realize it. You're the answered prayer I didn't have words for yet.</p>
+
+    <p>I wish you a year so kind it softens the hard parts of your story. I wish you mornings that don't start with anxiety. I wish you nights that end with gratitude.</p>
+
+    <p>I wish you laughter that comes from your belly the kind that makes you forget to be strong for a minute. I wish you wins that feel effortless because grace is carrying you.</p>
+
+    <p>I wish you clarity. When life gets loud, may you still hear God whisper, "This is the way." I wish you courage to leave tables where you're not being fed. I wish you discipline to protect your peace like it's gold.</p>
+
+    <p>May this be the year you stop apologizing for taking up space. The year your bank account matches your worth. The year your smile comes back permanently.</p>
+
+    <p>May you look in the mirror at 11:11pm and finally believe what I've been saying all along: You are enough. You always were.</p>
+
+    <p>And if you ever felt even once that you are not enough, that you don't matter, I want you to read these words again and again: You are my heart in human form. You are the reason I believe love isn't a scam.</p>
+
+    <p>I don't want anyone else. I don't even look at the world the same since you walked into mine.</p>
+
+    <p>And if you ever cried thinking I don't love you, swear those are the tears I'd cross oceans to wipe away. Those are the nights I'd lose sleep just to remind you that you're safe with me.</p>
+
+    <p>I'm here.</p>
+
+    <p>I choose you.</p>
+
+    <p>Not because I'm lonely, not because I need someone, but because your soul feels like home, and I don't want to lose the only place I've ever truly felt safe the place I feel more comfortable, as the name implies, comfort.</p>
+
+    <p>So today, I don't just celebrate your age. I celebrate your existence.</p>
+
+    <p>I celebrate your scars and your survival. I celebrate the little girl you were and the woman you're becoming.</p>
+
+    <p>Thank you for being born, Ayo mi.</p>
+
+    <p>Thank you for letting me love you.</p>
+
+    <p>Thank you for being the reason my heart learned how to beat out loud.</p>
+
+    <p>May this new age find you softer, stronger, richer, and more in love with yourself. May it find us still choosing each other, still fighting for this, still winning.</p>
+
+    <p class="letter-signature">
+        Happy Birthday, baby. I love you past words, past time, past this life. 🎂✨💕
+        <br><br>
+        Forever Yours ❤️
+    </p>
+</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Section -->
+        <section id="final" class="final-section">
+            <div class="final-content">
+                <h2 class="final-title" id="final-title">One More Thing...</h2>
+                <div class="final-message hidden" id="final-message">
+                    <div class="message-container">
+                        <div class="message-hearts"></div>
+                        <p class="message-text">Before you go, I want you to know something...</p>
+                        <p class="message-highlight">You are the most amazing person I have ever known.</p>
+                        <p class="message-text">Your birthday is not just a celebration of the day you were born, but a celebration of everything you are - your beautiful heart, your radiant soul, and your incredible spirit.</p>
+                        <p class="message-text">I hope this small  forward to creating countless more beautiful memories together. Happy Birthday, my love.</p>
+                        <div class="final-hearts">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+                        </div>
+                        <p class="message-footer">Happy Birthday, Beautiful Ayomide!</p>
+                    </div>
+                </div>
+                <button class="reveal-btn" id="reveal-btn">Click to reveal</button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <button class="lightbox-prev" id="lightbox-prev">&#10094;</button>
+        <button class="lightbox-next" id="lightbox-next">&#10095;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <video id="lightbox-video" controls></video>
+        </div>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="music/ayomide-birthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Confetti Container -->
+    <div id="confetti-container"></div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
